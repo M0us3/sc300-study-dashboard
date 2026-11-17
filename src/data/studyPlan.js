@@ -55,7 +55,7 @@ const rows=[
  [30,'access','Practice exam and weak areas','Take the current practice assessment, review missed objectives, and plan retakes.','https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/','Current SC-300 practice assessment','credentials/certifications/resources/study-guides/sc-300','Current SC-300 objectives (Oct 28, 2026)','Prefer the updated AI Skills Navigator assessment; legacy Learn assessment is outdated.']
 ];
 export const studyDays=rows.map(([day,domain,title,goal,labPath,labTitle,readPath,readTitle,note])=>{
- const week=Math.min(5,Math.ceil(day/7));
+ const week=day>28?5:Math.ceil(day/7);
  const lab={
    id:'sc300-d'+String(day).padStart(2,'0')+'-lab',domain,kind:day===30?'Practice':'Lab',mins:25,
    title:'Day '+day+': '+labTitle,source:labPath.startsWith('http')?'Microsoft Learn · guided':'MicrosoftLearning · official GitHub lab',
